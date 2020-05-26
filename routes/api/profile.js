@@ -332,8 +332,20 @@ router.get("/github/:username", (req, res) => {
         req.params.username
       }/repos?per_page=5&sort=created:asc&client_id=${config.get(
         "githubClientId"
-      )}&client_secrete=${config.get()}`,
+      )}&client_secret=${config.get("githubSecret")}`,
+      method: "GET",
+      headers: { "user-agent": "node.js" },
     };
+
+    request(options, (error, response, body) => {
+      if (error) console.error(error);
+
+      if (response.statusCode !== 200) {
+        return res.status(404).json({ msg: "No github profile found" });
+      }
+
+      res.json(JSON.parse(body));
+    });
   } catch (error) {}
 });
 
