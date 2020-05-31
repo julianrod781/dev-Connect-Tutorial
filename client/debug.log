@@ -1,0 +1,3 @@
+[0530/183236.376:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0530/183236.377:ERROR:exception_snapshot_win.cc(98)] thread ID 9948 not found in process
+[0530/183236.378:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
